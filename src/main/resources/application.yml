@@ -10,5 +10,7 @@ app:
       message:
         queue:
           topic:
-            url: https://sqs.us-east-1.amazonaws.com/336940309952/restrict-email-sqs
-            name: restrict-email-sqs
+            url: xxxxxx
+            name: xxxxxx
+          max_number_messages_polling: 10
+          wait_time_second_polling: 1

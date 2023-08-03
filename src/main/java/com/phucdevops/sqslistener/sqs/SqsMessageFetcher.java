@@ -25,9 +25,9 @@ public class SqsMessageFetcher {
     List<Message> fetchMessage() {
 
         ReceiveMessageRequest request = new ReceiveMessageRequest()
-                .withMaxNumberOfMessages(10) // pro
+                .withMaxNumberOfMessages(appProperties.sqsMaxNumberMessagesPolling) // pro
                 .withQueueUrl(appProperties.sqsTopicUrl)
-                .withWaitTimeSeconds(1);
+                .withWaitTimeSeconds(appProperties.sqsWaitTimeSecondsPolling);
 
         ReceiveMessageResult result = sqsClient.receiveMessage(request);
         if (result.getSdkHttpMetadata().getHttpStatusCode() != 200) {
