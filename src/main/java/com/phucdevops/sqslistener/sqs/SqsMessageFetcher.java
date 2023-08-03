@@ -25,7 +25,7 @@ public class SqsMessageFetcher {
     List<Message> fetchMessage() {
 
         ReceiveMessageRequest request = new ReceiveMessageRequest()
-                .withMaxNumberOfMessages(appProperties.sqsMaxNumberMessagesPolling) // pro
+                .withMaxNumberOfMessages(appProperties.sqsMaxNumberMessagesPolling)
                 .withQueueUrl(appProperties.sqsTopicUrl)
                 .withWaitTimeSeconds(appProperties.sqsWaitTimeSecondsPolling);
 

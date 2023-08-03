@@ -1,6 +1,6 @@
 package com.phucdevops.sqslistener.sqs;
 
-import com.amazonaws.services.sqs.AmazonSQS;
+import com.amazonaws.services.sqs.AmazonSQSAsync;
 import com.amazonaws.services.sqs.model.Message;
 import com.phucdevops.sqslistener.constant.AppProperties;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class SqsMessagePoller {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SqsMessagePoller.class);
-    private final AmazonSQS sqsClient;
+    private final AmazonSQSAsync sqsClient;
     private final AppProperties appProperties;
     private final SqsMessageFetcher messageFetcher;
     private final ThreadPoolExecutor handlerThreadPool
@@ -40,7 +40,6 @@ public class SqsMessagePoller {
                         message, new Date());
             });
         }
-
     }
 
     private void acknowledgeMessage(Message message) {
