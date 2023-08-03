@@ -1,0 +1,14 @@
+server:
+  port: 8088
+
+app:
+  config:
+    aws:
+      region: us-east-1
+      access_key_id: xxxxxx
+      secret_key_id: xxxxxx
+      message:
+        queue:
+          topic:
+            url: https://sqs.us-east-1.amazonaws.com/336940309952/restrict-email-sqs
+            name: restrict-email-sqs
